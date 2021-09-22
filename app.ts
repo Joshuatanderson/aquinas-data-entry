@@ -4,6 +4,8 @@ import express from "express"
 import morgan from "morgan"
 import cors from "cors"
 
+import { router as testRouter } from "./routes/testRouter"
+
 const x = config;
 console.log(x)
 
@@ -29,6 +31,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-// app.use("/api/v1/", testRouter)
+app.use("/api/v1/test", testRouter)
 // module.exports = app;
 // export app;
