@@ -1,7 +1,11 @@
 import express from "express";
 
-import { newItem } from "../controllers/item";
+import { editItem, newItem } from "../controllers/item";
 
 export const router = express.Router();
 
-router.route("/").get(newItem);
+// TODO: change to post request
+// TODO: change to accept a doc as a param
+// TODO: add a put/patch handler
+router.route("/").post(newItem);
+router.route("/").put(editItem);
