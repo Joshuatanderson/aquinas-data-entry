@@ -1,13 +1,14 @@
-import {config} from "./config"
+import { config } from "./config";
 
-import express from "express"
-import morgan from "morgan"
-import cors from "cors"
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
 
-import { router as testRouter } from "./routes/testRouter"
+import { router as testRouter } from "./routes/testRouter";
+import { router as itemRouter } from "./routes/itemRouter";
 
 const x = config;
-console.log(x)
+console.log(x);
 
 // const express = require("express");
 // const morgan = require("morgan");
@@ -18,7 +19,6 @@ console.log(x)
 
 export const app = express();
 // routes
-
 
 // middleware
 
@@ -31,6 +31,7 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use("/api/v1/test", testRouter)
+app.use("/api/v1/test", testRouter);
+app.use("/api/v1/item", itemRouter);
 // module.exports = app;
 // export app;
