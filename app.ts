@@ -1,9 +1,11 @@
+import {config} from "./config"
+
 import express from "express"
 import morgan from "morgan"
-import dotenv from "dotenv"
 import cors from "cors"
 
-import {config} from "./config"
+const x = config;
+console.log(x)
 
 // const express = require("express");
 // const morgan = require("morgan");
@@ -12,9 +14,7 @@ import {config} from "./config"
 
 // const config = require("./config")
 
-// console.log(process.env.U_SECRET_KEY);
 export const app = express();
-
 // routes
 
 

@@ -2,15 +2,17 @@ import dotenv from "dotenv"
 
 const result = dotenv.config()
 
-export let config: Record<string, any>|undefined;
 
-if(!("error" in result)){
-	config = result.parsed; // env is local/dev
-} else {
-	config = {}
-	for (const [key, val] of Object.entries(process.env)){
-		config[key] = val;
+export const config = (() => {
+	if(!("error" in result)){
+		return result.parsed; // env is local/dev
+	} else {
+		let envVariables: Record<string,any> = {}
+		for (const [key, val] of Object.entries(process.env)){
+			envVariables[key] = val;
+		}
+		return envVariables
 	}
-}
+})();
 
-// export config;
+
